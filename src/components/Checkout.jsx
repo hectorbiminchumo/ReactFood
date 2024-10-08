@@ -16,9 +16,18 @@ function Checkout() {
       userProgressCtx.hideCheckout();
     }
 
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      const fd = new FormData(event.target);
+      
+      const customerData = Object.fromEntries(fd.entries()); // { enamil: test@example.com }
+      console.log(customerData);
+    }
+
   return (
     <Modal open={userProgressCtx.progress ==='checkout'} onClose={handleClose}>
-    <form>
+    <form onSubmit={handleSubmit}>
         <h2>Checkout</h2>
         <p>Total Amount: {currencyFormatter.format(cartTotal)} </p>
 
