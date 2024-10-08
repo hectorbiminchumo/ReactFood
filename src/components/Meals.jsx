@@ -17,7 +17,7 @@ function Meals() {
         setLoadedMeals(meals);
     }
         fetchMeals()
-    });
+    },[]);
 
     return (
         <ul id="meals">
